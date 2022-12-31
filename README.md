@@ -8,8 +8,9 @@
 
  To use the script, naviate to your target directory and execute the script. For example, if the script is in the same directory as the target images:
 
- `
-  cd x:/target-path/
-  python img-chopper.py
- `
+ 
+  `cd x:/target-path/`
+  
+  `python img-chopper.py`
+ 
  
