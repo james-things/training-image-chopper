@@ -2,6 +2,8 @@
 
  A handy python script to cut rectangular images into the largest possible beginning, middle, and end squares, regardless of their orientation, for use in training datasets!
 
+Note: for 4:3 images (for now!)
+
  To use, you will need to install install https://pillow.readthedocs.io/en/stable/ (or use an existing python/anaconda environment with PIL configured).
 
  As the script is currently written, you must create a folder titled "out" in the same directory as your images for the output images to be saved to.
