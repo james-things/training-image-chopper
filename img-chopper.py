@@ -7,8 +7,9 @@ def capture_and_save_image(img, x1, y1, x2, y2, image_name, position):
 	cur_im = img.crop((x1, y1, x2, y2))
 	cur_im.save(f"out/{image_name}-{position}.png")
 
-def log_debug(output_size, travel_range, is_landscape, x1, y1, x2, y2):
-	print(f'position: start, output_size {output_size} travel_range {travel_range} is_landscape {is_landscape}')
+# log debug information
+def log_debug(position, output_size, travel_range, is_landscape, x1, y1, x2, y2):
+	print(f'position: {position}, output_size {output_size} travel_range {travel_range} is_landscape {is_landscape}')
 	print(f'x1 {x1} y1 {y1} x2 {x2} y2 {y2}')
 
 # process an individual image, producing three output images	
@@ -30,10 +31,11 @@ def process_image(image_name, image_file_path):
 	x2 = output_size
 	y1 = 0
 	y2 = output_size
+	position = "start"
 
 	# capture initial square
-	capture_and_save_image(im, x1, y1, x2, y2, image_name, "start")
-	log_debug(output_size, travel_range, is_landscape, x1, y1, x2, y2)
+	capture_and_save_image(im, x1, y1, x2, y2, image_name, position)
+	log_debug(position, output_size, travel_range, is_landscape, x1, y1, x2, y2)
 
 	# shift to middle
 	middle_point = travel_range / 2
@@ -46,10 +48,11 @@ def process_image(image_name, image_file_path):
 	else:
 		y1 = middle_image_start
 		y2 = middle_image_end
+	position = "middle"
 		
 	# capture middle square
-	capture_and_save_image(im, x1, y1, x2, y2, image_name, "middle")
-	log_debug(output_size, travel_range, is_landscape, x1, y1, x2, y2)
+	capture_and_save_image(im, x1, y1, x2, y2, image_name, position)
+	log_debug(position, output_size, travel_range, is_landscape, x1, y1, x2, y2)
 
 	# shift to end
 	end_point = travel_range
@@ -61,10 +64,11 @@ def process_image(image_name, image_file_path):
 	else:
 		y1 = end_image_start
 		y2 = travel_range
+	position = "end"
 
 	# capture final square
-	capture_and_save_image(im, x1, y1, x2, y2, image_name, "end")
-	log_debug(output_size, travel_range, is_landscape, x1, y1, x2, y2)
+	capture_and_save_image(im, x1, y1, x2, y2, image_name, position)
+	log_debug(position, output_size, travel_range, is_landscape, x1, y1, x2, y2)
 
 	print("~image completed~")
 
