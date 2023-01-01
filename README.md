@@ -1,8 +1,6 @@
 # training-image-chopper
 
- A handy python script to cut rectangular images into the largest possible beginning, middle, and end squares, regardless of their orientation, for use in training datasets!
-
-Note: for 4:3 images (for now!)
+ A handy python script to cut, from rectangular images of any size or orientation, the largest possible square images from the beginning, middle, and end, for use in training datasets!
 
  To use, you will need to install install https://pillow.readthedocs.io/en/stable/ (or use an existing python/anaconda environment with PIL configured).
 
